@@ -7,6 +7,9 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 
+import './import-global-elements';
+import registerElements from './register-elements';
+
 if (environment.production) {
   enableProdMode();
 }
@@ -17,4 +20,4 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(IonicModule.forRoot({})),
     provideRouter(routes),
   ],
-});
+}).then(registerElements);

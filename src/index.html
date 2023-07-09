@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="no-js">
 <head>
+  <script>document.querySelector('html').classList.remove('no-js');</script>
   <meta charset="utf-8" />
   <title>Ionic App</title>
 
   <base href="/" />
 
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
@@ -18,9 +18,50 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </head>
-
 <body>
+  <ion-progress-bar id="app-progress" class="app-progress active" wc-ready></ion-progress-bar>
+  <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer" id="app-drawer">
+    <div slot="title">
+      <span>Menu</span>
+    </div>
+    <div class="app-drawer__content">
+      <app-icon-button
+        name="reorder-three-outline"
+        class="app-drawer-toggle"
+        data-drawer-id="app-drawer"
+        aria-label="Open Menu"
+        role="button">
+      </app-icon-button>
+      <app-nav>
+        <nav class="app-drawer__nav">
+          <ion-accordion-group value="demo-pages">
+            <ion-accordion value="demo-pages">
+              <ion-item slot="header" color="light">
+                <ion-label role="heading">Strony Demo</ion-label>
+              </ion-item>
+              <ion-list slot="content">
+                <ul>
+                  <li>
+                    <ion-item>
+                      <a href="/page/cards-demo">Cards Demo</a>
+                    </ion-item>
+                  </li>
+                </ul>
+              </ion-list>
+            </ion-accordion>
+          </ion-accordion-group>
+        </nav>
+      </app-nav>
+    </div>
+  </mwc-drawer>
+  <app-icon-button
+    wc-ready
+    name="reorder-three-outline"
+    class="app-drawer-toggle"
+    data-drawer-id="app-drawer"
+    aria-label="Open Menu"
+    role="button">
+  </app-icon-button>
   <app-root></app-root>
 </body>
-
 </html>

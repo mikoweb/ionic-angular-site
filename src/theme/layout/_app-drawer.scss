@@ -1,0 +1,30 @@
+.app-drawer {
+  &.ready {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+  }
+
+  &__menu-button {
+    padding: 8px 0;
+    margin-left: -10px;
+  }
+
+  &__content {
+    padding: 0 16px;
+  }
+
+  &__nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      > li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

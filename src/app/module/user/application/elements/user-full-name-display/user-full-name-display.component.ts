@@ -19,6 +19,7 @@ export class UserFullNameDisplayComponent {
   constructor(
     protected readonly userDataStore: UserDataStore
   ) {
+    // TODO
     // TODO delete it
 
     (window as any).userDataStore = userDataStore;

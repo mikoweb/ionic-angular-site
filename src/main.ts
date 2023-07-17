@@ -6,7 +6,7 @@ import { configure } from 'mobx';
 
 configure({
   enforceActions: 'never',
-})
+});
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';

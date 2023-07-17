@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
-import { AppCardsDemoPageComponent } from './pages/cards-demo-page/app-cards-demo-page.component';
+import { CardsDemoPageComponent } from './pages/cards-demo-page/cards-demo-page.component';
+import { UserDataPageComponent } from './pages/user-data-page/user-data-page.component';
 
 export const pagesRoutes: Routes = [
   {
     path: 'page/cards-demo',
-    component: AppCardsDemoPageComponent
+    component: CardsDemoPageComponent
+  },
+  {
+    path: 'page/user-data',
+    component: UserDataPageComponent
   },
   {
     path: '',

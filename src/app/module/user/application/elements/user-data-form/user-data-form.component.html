@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: 30px;">
+  <ion-input (keyup.enter)="onSubmit()" mode="md" label-placement="floating" fill="outline"
+             label="First Name" type="text" formControlName="firstName"></ion-input>
+  <br />
+  <ion-input (keyup.enter)="onSubmit()" mode="md" label-placement="floating" fill="outline"
+             label="Last Name" type="text" formControlName="lastName"></ion-input>
+  <br />
+  <ion-input (keyup.enter)="onSubmit()" mode="md" label-placement="floating" fill="outline"
+             label="Email" type="email" formControlName="email"
+             errorText="Invalid email" email></ion-input>
+  <br />
+  <ion-button mode="ios" type="submit" fill="outline" [disabled]="!form.valid">Submit</ion-button>
+</form>
+<p>Form First Name Value: {{ form.get('firstName')?.value }}</p>

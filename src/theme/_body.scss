@@ -8,6 +8,14 @@ body {
   width: auto;
   max-width: none;
   height: auto;
+  min-height: 100vh;
   max-height: none;
   overflow: visible;
+}
+
+.ion-page {
+  display: block;
+  position: static;
+  overflow: visible;
+  contain: none;
 }

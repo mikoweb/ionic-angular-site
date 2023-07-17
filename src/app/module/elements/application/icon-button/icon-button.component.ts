@@ -13,15 +13,15 @@ import { IonicModule } from '@ionic/angular';
 import { IconButton } from '@material/mwc-icon-button/mwc-icon-button';
 
 @Component({
-  selector: AppIconButtonComponent.componentName,
-  templateUrl: './app-icon-button.component.html',
-  styleUrls: ['./app-icon-button.component.scss'],
+  selector: IconButtonComponent.componentName,
+  templateUrl: './icon-button.component.html',
+  styleUrls: ['./icon-button.component.scss'],
   standalone: true,
   encapsulation: ViewEncapsulation.ShadowDom,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonicModule]
 })
-export class AppIconButtonComponent implements OnChanges {
+export class IconButtonComponent implements OnChanges {
   public static readonly componentName = 'app-icon-button';
   private readonly shadowRoot: Document;
 

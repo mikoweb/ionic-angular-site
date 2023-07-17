@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AppCardsDemoPageComponent } from './app-cards-demo-page.component';
+import { IconButtonComponent } from './icon-button.component';
 
-describe('AppCardsDemoPageComponent', () => {
-  let component: AppCardsDemoPageComponent;
-  let fixture: ComponentFixture<AppCardsDemoPageComponent>;
+describe('IconButtonComponent', () => {
+  let component: IconButtonComponent;
+  let fixture: ComponentFixture<IconButtonComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppCardsDemoPageComponent ],
+      declarations: [ IconButtonComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppCardsDemoPageComponent);
+    fixture = TestBed.createComponent(IconButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

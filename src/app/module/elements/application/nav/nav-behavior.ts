@@ -2,7 +2,7 @@ import Behavior from '../../../core/application/behavior/behavior';
 import BehaviorEvent from '../../../core/application/behavior/value-object/behavior-event';
 import { Router } from '@angular/router';
 
-export class AppNavBehavior extends Behavior {
+export class NavBehavior extends Behavior {
   constructor(
     element: Element,
     private readonly router: Router

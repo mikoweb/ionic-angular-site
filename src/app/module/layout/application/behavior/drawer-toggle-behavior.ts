@@ -1,6 +1,6 @@
 import { Drawer } from '@material/mwc-drawer';
-import Behavior from '../../../core/application/behavior/behavior';
-import BehaviorEvent from '../../../core/application/behavior/value-object/behavior-event';
+import Behavior from '@app/module/core/application/behavior/behavior';
+import BehaviorEvent from '@app/module/core/application/behavior/value-object/behavior-event';
 
 export class DrawerToggleBehavior extends Behavior {
   protected get events(): BehaviorEvent[] {

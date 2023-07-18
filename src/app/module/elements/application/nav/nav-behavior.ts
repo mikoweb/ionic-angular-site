@@ -1,5 +1,5 @@
-import Behavior from '../../../core/application/behavior/behavior';
-import BehaviorEvent from '../../../core/application/behavior/value-object/behavior-event';
+import Behavior from '@app/module/core/application/behavior/behavior';
+import BehaviorEvent from '@app/module/core/application/behavior/value-object/behavior-event';
 import { Router } from '@angular/router';
 
 export class NavBehavior extends Behavior {

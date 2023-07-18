@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { UserDataFormComponent } from '../../../../user/application/elements/user-data-form/user-data-form.component';
+import { UserDataFormComponent } from '@app/module/user/application/elements/user-data-form/user-data-form.component';
 
 @Component({
   selector: 'app-user-data-page',

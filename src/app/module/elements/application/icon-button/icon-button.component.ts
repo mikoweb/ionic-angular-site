@@ -1,28 +1,23 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  CUSTOM_ELEMENTS_SCHEMA,
-  ViewEncapsulation,
-  ElementRef,
-  OnChanges,
-  SimpleChanges
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { IconButton } from '@material/mwc-icon-button/mwc-icon-button';
+import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
+import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
+
+const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: IconButtonComponent.componentName,
+  selector: IconButtonComponent.customElementName,
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
   standalone: true,
-  encapsulation: ViewEncapsulation.ShadowDom,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  encapsulation,
+  schemas,
   imports: [IonicModule]
 })
-export class IconButtonComponent implements OnChanges {
-  public static readonly componentName = 'app-icon-button';
+@CustomElement()
+export class IconButtonComponent extends CustomElementBaseComponent implements OnChanges {
+  public static override readonly customElementName = 'app-icon-button';
   private readonly shadowRoot: Document;
 
   @Input() name?: string;
@@ -32,6 +27,7 @@ export class IconButtonComponent implements OnChanges {
   @Output() click = new EventEmitter();
 
   constructor(ele: ElementRef) {
+    super();
     this.shadowRoot = ele.nativeElement.shadowRoot;
   }
 

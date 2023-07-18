@@ -1,21 +1,26 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { FormGroup, FormControl,ReactiveFormsModule } from '@angular/forms';
-import UserDataStore from '../../../infrastructure/store/user-data-store';
+import UserDataStore from '@app/module/user/infrastructure/store/user-data-store';
 import { autorun } from 'mobx';
+import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
+import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
+
+const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: UserDataFormComponent.componentName,
+  selector: UserDataFormComponent.customElementName,
   templateUrl: './user-data-form.component.html',
   styleUrls: ['./user-data-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  encapsulation: ViewEncapsulation.ShadowDom,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  encapsulation,
+  schemas,
   imports: [IonicModule, ReactiveFormsModule]
 })
-export class UserDataFormComponent implements OnInit {
-  public static readonly componentName = 'app-user-data-form';
+@CustomElement()
+export class UserDataFormComponent extends CustomElementBaseComponent implements OnInit {
+  public static override readonly customElementName: string = 'app-user-data-form';
 
   protected readonly form = new FormGroup({
     firstName: new FormControl(),
@@ -25,7 +30,9 @@ export class UserDataFormComponent implements OnInit {
 
   constructor(
     protected readonly userDataStore: UserDataStore
-  ) {}
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     autorun(() => this.updateFormFromStore());
@@ -33,7 +40,6 @@ export class UserDataFormComponent implements OnInit {
 
   protected onSubmit(): void {
     if (this.form.valid) {
-      // TODO
       // TODO data persistence
 
       // TODO delete it

@@ -1,32 +1,29 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { MobxAngularModule } from 'mobx-angular';
-import UserDataStore from '../../../infrastructure/store/user-data-store';
+import UserDataStore from '@app/module/user/infrastructure/store/user-data-store';
+import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
+import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
+
+const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: UserFullNameDisplayComponent.componentName,
+  selector: UserFullNameDisplayComponent.customElementName,
   templateUrl: './user-full-name-display.component.html',
   styleUrls: ['./user-full-name-display.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  encapsulation: ViewEncapsulation.ShadowDom,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  encapsulation,
+  schemas,
   imports: [IonicModule, MobxAngularModule]
 })
-export class UserFullNameDisplayComponent {
-  public static readonly componentName = 'app-user-full-name-display';
+@CustomElement()
+export class UserFullNameDisplayComponent extends CustomElementBaseComponent {
+  public static override readonly customElementName = 'app-user-full-name-display';
 
   constructor(
     protected readonly userDataStore: UserDataStore
   ) {
-    // TODO
-    // TODO delete it
-
-    (window as any).userDataStore = userDataStore;
-
-    setTimeout(() => {
-      this.userDataStore.firstName = 'John';
-      this.userDataStore.lastName = 'Doe';
-    }, 2000);
+    super();
   }
 }

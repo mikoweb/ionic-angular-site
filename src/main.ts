@@ -1,4 +1,4 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { ApplicationRef, enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -25,4 +25,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(IonicModule.forRoot({})),
     provideRouter(routes),
   ],
-}).then(CustomElementRegistry.onBootstrapApplication);
+})
+  .then((appRef: ApplicationRef) => {
+    CustomElementRegistry.onBootstrapApplication(appRef);
+  })
+;

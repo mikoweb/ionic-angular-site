@@ -1,9 +1,10 @@
-import { Component, EnvironmentInjector, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { LayoutReady } from '@app/module/layout/application/layout-ready';
 import { LayoutInitializer } from '@app/module/layout/application/layout-initializer';
 import { RouterOutlet } from '@angular/router';
+import commandBusLoader from '@app/config/command-bus/loaders';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [IonicModule, CommonModule, RouterOutlet],
 })
 export class AppComponent {
-  public environmentInjector = inject(EnvironmentInjector);
-
   constructor() {
+    commandBusLoader();
     LayoutReady.init();
     LayoutInitializer.init();
   }

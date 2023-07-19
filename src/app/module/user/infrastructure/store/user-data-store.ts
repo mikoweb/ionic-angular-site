@@ -1,6 +1,7 @@
 import { computed, observable } from 'mobx-angular';
 import { Injectable } from '@angular/core';
 import { makeObservable } from 'mobx';
+import UserDataDTO from '@app/module/user/domain/dto/user-data-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +17,11 @@ export default class UserDataStore {
 
   @computed get fullName() {
     return `${this.firstName ?? ''} ${this.lastName ?? ''}`;
+  }
+
+  public loadFromDTO(dto: UserDataDTO): void {
+    this.firstName = dto.firstName;
+    this.lastName = dto.lastName;
+    this.email = dto.email;
   }
 }

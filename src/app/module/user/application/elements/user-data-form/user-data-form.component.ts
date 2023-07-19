@@ -5,6 +5,9 @@ import UserDataStore from '@app/module/user/infrastructure/store/user-data-store
 import { autorun } from 'mobx';
 import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
 import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
+import CommandBus from '@app/module/core/application/command-bus/command-bus';
+import SaveUserDataCommand from '@app/module/user/application/command/save-user-data-command';
+import UserDataDTO from '@app/module/user/domain/dto/user-data-dto';
 
 const { encapsulation, schemas } = customElementParams;
 
@@ -29,7 +32,8 @@ export class UserDataFormComponent extends CustomElementBaseComponent implements
   });
 
   constructor(
-    protected readonly userDataStore: UserDataStore
+    protected readonly userDataStore: UserDataStore,
+    private readonly commandBus: CommandBus
   ) {
     super();
   }
@@ -40,20 +44,20 @@ export class UserDataFormComponent extends CustomElementBaseComponent implements
 
   protected onSubmit(): void {
     if (this.form.valid) {
-      // TODO data persistence
-
-      // TODO delete it
-      console.log('!!! SUBMIT !!!');
-      console.log(this.form.value);
+      this.commandBus.execute(new SaveUserDataCommand(
+        UserDataDTO.createFromObject(this.form.value)
+      ));
     }
   }
 
   private updateFormFromStore(): void
   {
+    const store = this.userDataStore;
+
     this.form.setValue({
-      firstName: this.userDataStore.firstName ?? '',
-      lastName: this.userDataStore.lastName ?? '',
-      email: this.userDataStore.email ?? '',
+      firstName: store.firstName ?? '',
+      lastName: store.lastName ?? '',
+      email: store.email ?? '',
     });
   }
 }

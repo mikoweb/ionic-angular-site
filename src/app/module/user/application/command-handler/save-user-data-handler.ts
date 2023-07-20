@@ -3,6 +3,7 @@ import CommandHandler from '@app/module/core/application/command-bus/command-han
 import SaveUserDataCommand from '@app/module/user/application/command/save-user-data-command';
 import UserDataStore from '@app/module/user/infrastructure/store/user-data-store';
 import UserDataPersistence from '@app/module/user/infrastructure/persistence/user-data-persistence';
+import MessageService from '@app/module/core/application/message/message-service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +13,18 @@ export default class SaveUserDataHandler implements CommandHandler<SaveUserDataC
 
   constructor(
     private readonly userDataStore: UserDataStore,
-    private readonly userDataPersistence: UserDataPersistence
+    private readonly userDataPersistence: UserDataPersistence,
+    private readonly messageService: MessageService
   ) {}
 
   public async execute(command: SaveUserDataCommand) {
-    this.userDataStore.loadFromDTO(command.userDataDTO);
-    this.userDataPersistence.save(command.userDataDTO);
+    try {
+      this.userDataStore.loadFromDTO(command.userDataDTO);
+      this.userDataPersistence.save(command.userDataDTO);
+
+      await this.messageService.createSuccess({message: 'User data saved!'});
+    } catch (error) {
+      await this.messageService.createError({message: 'Saving error...'});
+    }
   }
 }

@@ -13,6 +13,7 @@ Site boilerplate in Ionic and Angular with MVC and CQRS using native browser Web
 * [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
 * [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
 * [State management](https://mobx.js.org/README.html)
+* [Dependency injection](https://angular.io/guide/dependency-injection)
 * [Hexagonal directory structure](https://github.com/CodelyTV/php-ddd-example#-hexagonal-architecture)
 
 ### Frameworks and libraries

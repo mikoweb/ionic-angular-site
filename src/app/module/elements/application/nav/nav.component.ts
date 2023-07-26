@@ -3,6 +3,7 @@ import { NavBehavior } from './nav-behavior';
 import { Router } from '@angular/router';
 import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
 import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
+import GlobalStyleLoader from '@app/module/core/application/custom-element/global-style-loader';
 
 const { encapsulation, schemas } = customElementParams;
 
@@ -17,14 +18,13 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class NavComponent extends CustomElementBaseComponent {
   public static override readonly customElementName = 'app-nav';
-  private readonly hostElement: Element;
 
   constructor(
     ele: ElementRef,
+    gsl: GlobalStyleLoader,
     router: Router,
   ) {
-    super();
-    this.hostElement = ele.nativeElement;
+    super(ele, gsl);
     new NavBehavior(ele.nativeElement, router);
   }
 }

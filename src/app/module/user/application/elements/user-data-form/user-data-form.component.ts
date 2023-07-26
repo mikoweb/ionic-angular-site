@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { FormGroup, FormControl,ReactiveFormsModule } from '@angular/forms';
 import UserDataStore from '@app/module/user/infrastructure/store/user-data-store';
@@ -8,6 +8,7 @@ import CustomElementBaseComponent from '@app/module/core/application/custom-elem
 import CommandBus from '@app/module/core/application/command-bus/command-bus';
 import SaveUserDataCommand from '@app/module/user/application/command/save-user-data-command';
 import UserDataDTO from '@app/module/user/domain/dto/user-data-dto';
+import GlobalStyleLoader from '@app/module/core/application/custom-element/global-style-loader';
 
 const { encapsulation, schemas } = customElementParams;
 
@@ -32,10 +33,16 @@ export class UserDataFormComponent extends CustomElementBaseComponent implements
   });
 
   constructor(
+    ele: ElementRef,
+    gsl: GlobalStyleLoader,
     protected readonly userDataStore: UserDataStore,
     private readonly commandBus: CommandBus
   ) {
-    super();
+    super(ele, gsl);
+  }
+
+  protected override get useGlobalStyle(): boolean {
+    return true;
   }
 
   public ngOnInit(): void {

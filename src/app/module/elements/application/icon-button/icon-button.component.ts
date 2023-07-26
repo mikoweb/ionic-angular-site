@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { IconButton } from '@material/mwc-icon-button/mwc-icon-button';
 import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
 import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
+import GlobalStyleLoader from '@app/module/core/application/custom-element/global-style-loader';
 
 const { encapsulation, schemas } = customElementParams;
 
@@ -18,7 +19,6 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class IconButtonComponent extends CustomElementBaseComponent implements OnChanges {
   public static override readonly customElementName = 'app-icon-button';
-  private readonly shadowRoot: Document;
 
   @Input() name?: string;
   @Input() size?: string;
@@ -26,13 +26,12 @@ export class IconButtonComponent extends CustomElementBaseComponent implements O
   @Input() disabled: boolean = false;
   @Output() click = new EventEmitter();
 
-  constructor(ele: ElementRef) {
-    super();
-    this.shadowRoot = ele.nativeElement.shadowRoot;
+  constructor(ele: ElementRef, gsl: GlobalStyleLoader) {
+    super(ele, gsl);
   }
 
   public get button(): IconButton | null {
-    return this.shadowRoot.querySelector('.app-icon-button');
+    return this.getShadowRoot().querySelector('.app-icon-button');
   }
 
   public ngOnChanges(changes: SimpleChanges): void {

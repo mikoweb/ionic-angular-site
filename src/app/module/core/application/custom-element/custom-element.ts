@@ -24,7 +24,7 @@ export class CustomElementRegistry {
   private static bootstrapLoaded: boolean = false;
   private static toRegister: ToRegister[] = [];
 
-  public static onBootstrapApplication(appRef: ApplicationRef): void {
+  public static init(appRef: ApplicationRef): void {
     if (!CustomElementRegistry.bootstrapLoaded) {
       CustomElementRegistry.appRef = appRef;
       CustomElementRegistry.bootstrapLoaded = true;
@@ -37,14 +37,22 @@ export class CustomElementRegistry {
     }
   }
 
+  public static hasElement(elementName: string): boolean {
+    return CustomElementRegistry.registry.has(elementName);
+  }
+
+  public static setElement(elementName: string, element: any): void {
+    customElements.define(elementName, element);
+    CustomElementRegistry.registry.set(elementName, element);
+  }
+
   public static register(component: Type<any> & any, name?: string): void {
     name = name ?? component.customElementName;
 
-    if (!CustomElementRegistry.registry.has(name as string)) {
+    if (!CustomElementRegistry.hasElement(name as string)) {
       if (CustomElementRegistry.bootstrapLoaded) {
         const element = createCustomElement(component, {injector: CustomElementRegistry.appRef.injector});
-        customElements.define(name as string, element);
-        CustomElementRegistry.registry.set(name as string, element);
+        CustomElementRegistry.setElement(name as string, element)
       } else {
         CustomElementRegistry.toRegister.push({component, name})
       }

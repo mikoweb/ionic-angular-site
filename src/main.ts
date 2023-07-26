@@ -13,7 +13,6 @@ import { AppComponent } from '@app/app.component';
 import { environment } from './environments/environment';
 
 import './import-global-elements';
-import { CustomElementRegistry } from '@app/module/core/application/custom-element/custom-element';
 
 if (environment.production) {
   enableProdMode();
@@ -25,8 +24,4 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(IonicModule.forRoot({})),
     provideRouter(routes),
   ],
-})
-  .then((appRef: ApplicationRef) => {
-    CustomElementRegistry.onBootstrapApplication(appRef);
-  })
-;
+});

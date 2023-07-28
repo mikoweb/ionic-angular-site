@@ -36,7 +36,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/style/variables.scss", "src/style.scss"],
+            "styles": ["src/style.scss"],
             "scripts": []
           },
           "configurations": {
@@ -116,7 +116,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/style/variables.scss", "src/style.scss"],
+            "styles": ["src/style.scss"],
             "scripts": []
           },
           "configurations": {

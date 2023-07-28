@@ -1,10 +1,16 @@
+@import "material-colors/dist/colors.sass";
+@import "material-colors/dist/colors.var.css";
 @import "app-variables";
+@import "app-variables-css";
 
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
 :root {
+  /** font **/
+  --ion-default-font: #{$app-primary-font-family};
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -76,4 +82,17 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+/** font **/
+html.ios {
+  --ion-default-font: #{$app-primary-font-family};
+}
+
+html.md {
+  --ion-default-font: #{$app-primary-font-family};
+}
+
+html {
+  --ion-font-family: var(--ion-default-font);
 }

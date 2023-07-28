@@ -1,4 +1,8 @@
+@import "../app-variables";
+
 // Put variables to override
+
+$font-family-sans-serif: $app-primary-font-family !default;
 
 /*
 $theme-colors: (

@@ -12,12 +12,12 @@
   --ion-default-font: #{$app-primary-font-family};
 
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary: #{$app-primary-color};
+  --ion-color-primary-rgb: 213, 0, 0;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #{darken($app-primary-color, 20%)};
+  --ion-color-primary-tint: #{lighten($app-primary-color, 20%)};
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;

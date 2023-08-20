@@ -21,6 +21,22 @@
 <body>
   <ion-progress-bar id="app-progress" class="app-progress active" wc-ready></ion-progress-bar>
   <ion-app>
+    <header class="app-header">
+      <div class="app-header-toolbar">
+        <div class="container">
+          <app-icon-button
+            wc-ready
+            name="reorder-three-outline"
+            class="app-header-toolbar__item app-drawer-toggle"
+            data-drawer-id="app-drawer"
+            aria-label="Open Menu"
+            role="button">
+          </app-icon-button>
+          <h1 class="app-header-toolbar__item app-header__title">App Name</h1>
+          <app-user-full-name-display class="app-header-toolbar__item app-header-toolbar__hello"></app-user-full-name-display>
+        </div>
+      </div>
+    </header>
     <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer" id="app-drawer">
       <div slot="title">
         <span>Menu</span>
@@ -65,15 +81,6 @@
         </app-nav>
       </div>
     </mwc-drawer>
-    <app-icon-button
-      wc-ready
-      name="reorder-three-outline"
-      class="app-drawer-toggle"
-      data-drawer-id="app-drawer"
-      aria-label="Open Menu"
-      role="button">
-    </app-icon-button>
-    <app-user-full-name-display></app-user-full-name-display>
     <main>
       <app-root></app-root>
     </main>

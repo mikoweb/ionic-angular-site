@@ -1,9 +1,11 @@
+@import "../app-variables";
+
 .app-drawer {
   &.ready {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10000;
+    z-index: $app-drawer-z-index;
   }
 
   &__menu-button {
@@ -27,4 +29,10 @@
       }
     }
   }
+}
+
+.app-drawer-toggle {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
 }

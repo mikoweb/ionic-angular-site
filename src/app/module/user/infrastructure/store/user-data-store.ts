@@ -16,7 +16,9 @@ export default class UserDataStore {
   }
 
   @computed get fullName() {
-    return `${this.firstName ?? ''} ${this.lastName ?? ''}`;
+    const fullName = `${this.firstName ?? ''} ${this.lastName ?? ''}`.trim();
+
+    return fullName.length > 0 ? fullName : 'Guest';
   }
 
   public loadFromDTO(dto: UserDataDTO): void {

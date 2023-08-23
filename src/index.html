@@ -48,7 +48,7 @@
       </div>
     </div>
   </header>
-  <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer" id="app-drawer">
+  <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer no-js-hidden" id="app-drawer">
     <div slot="title">
       <span>Menu</span>
     </div>
@@ -95,6 +95,10 @@
   <ion-app>
     <main>
       <app-root></app-root>
+      <noscript>
+        <br />
+        <p class="ion-text-center h5">This site requires JavaScript!</p>
+      </noscript>
     </main>
   </ion-app>
   <footer class="app-footer">

@@ -1,11 +1,8 @@
 @import "app-variables";
 
 ion-app, .ion-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: block;
   position: static;
   overflow: visible;
   contain: none;
-  min-height: calc(100vh - #{$app-body-padding-top});
 }

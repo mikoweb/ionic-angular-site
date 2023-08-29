@@ -14,24 +14,55 @@ export class NavBehavior extends Behavior {
   protected get events(): BehaviorEvent[] {
     return [
       new BehaviorEvent('click', (event: Event) => this.onAnchorClick(event), 'a'),
+      new BehaviorEvent('click', (event: Event) => this.onIonItemClick(event), 'ion-item'),
     ];
   }
 
   private initNav(): void {
-    for (const anchor of this.getAllAnchorsQuery()) {
-      const href: string = this.getAnchorHref(anchor);
+    setTimeout(() => {
+      for (const anchor of this.getAllAnchorsQuery()) {
+        const href: string = this.getAnchorHref(anchor);
 
-      if (href === this.router.url) {
-        this.setActive(anchor);
-        break;
+        console.log(href);
+        console.log(this.router.url);
+
+        if (href === this.router.url) {
+          this.setActive(anchor);
+          break;
+        }
+      }
+    }, 200);
+  }
+
+  private onIonItemClick(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    const element = event.target as HTMLElement;
+
+    if (element.tagName === 'ION-ITEM') {
+      const anchor: HTMLAnchorElement | null = element.querySelector('a');
+
+      if (anchor) {
+        this.clickAnchor(anchor);
       }
     }
   }
 
   private onAnchorClick(event: Event): void {
     event.preventDefault();
+    event.stopPropagation();
+    const tagName = (event.target as HTMLElement).tagName;
 
-    const anchor: HTMLAnchorElement = event.target as HTMLAnchorElement;
+    if (tagName === 'A') {
+      const anchor: HTMLAnchorElement | null = event.target as HTMLAnchorElement | null;
+
+      if (anchor) {
+        this.clickAnchor(anchor);
+      }
+    }
+  }
+
+  private clickAnchor(anchor: HTMLAnchorElement) {
     this.router.navigate([this.getAnchorHref(anchor)]);
 
     this.setActive(anchor);
@@ -42,7 +73,7 @@ export class NavBehavior extends Behavior {
       const elements = [el, el.closest('ion-item'), el.closest('li')];
 
       for (const item of elements) {
-        if (item !== null) {
+        if (item) {
           item.classList.remove('active');
         }
       }
@@ -51,7 +82,7 @@ export class NavBehavior extends Behavior {
     const elements = [anchor, anchor.closest('ion-item'), anchor.closest('li')];
 
     for (const item of elements) {
-      if (item !== null) {
+      if (item) {
         item.classList.add('active');
       }
     }

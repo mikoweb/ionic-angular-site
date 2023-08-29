@@ -8,13 +8,23 @@
     z-index: $app-drawer-z-index;
   }
 
-  &__menu-button {
-    padding: 8px 0;
-    margin-left: -10px;
+  &__top-bar {
+    height: $app-header-height;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  &__top-bar-item {
+    margin: 0 5px;
   }
 
   &__content {
-    padding: 0 16px;
+    padding: 0 0 15px;
   }
 
   &__nav {
@@ -27,6 +37,15 @@
         margin: 0;
         padding: 0;
       }
+    }
+
+    a {
+      color: $md-grey-900;
+      text-decoration: none;
+    }
+
+    ion-item.active {
+      --background: #{$md-red-100};
     }
   }
 }

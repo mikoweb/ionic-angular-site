@@ -48,18 +48,22 @@
       </div>
     </div>
   </header>
-  <mwc-drawer hasHeader type="modal" wc-hidden class="app-drawer no-js-hidden" id="app-drawer">
-    <div slot="title">
-      <span>Menu</span>
+  <mwc-drawer type="modal" wc-hidden class="app-drawer no-js-hidden" id="app-drawer">
+    <div class="app-drawer__top-bar">
+      <div class="app-drawer__top-bar-item">
+        <app-icon-button
+          name="reorder-three-outline"
+          class="app-drawer-toggle"
+          data-drawer-id="app-drawer"
+          aria-label="Open Menu"
+          role="button">
+        </app-icon-button>
+      </div>
+      <div class="app-drawer__top-bar-item">
+        <span>Menu</span>
+      </div>
     </div>
     <div class="app-drawer__content">
-      <app-icon-button
-        name="reorder-three-outline"
-        class="app-drawer-toggle"
-        data-drawer-id="app-drawer"
-        aria-label="Open Menu"
-        role="button">
-      </app-icon-button>
       <app-nav>
         <nav class="app-drawer__nav">
           <ion-accordion-group value="demo-pages">
@@ -70,17 +74,17 @@
               <ion-list slot="content">
                 <ul>
                   <li>
-                    <ion-item>
+                    <ion-item button>
                       <a href="/page/cards-demo">Cards Demo</a>
                     </ion-item>
                   </li>
                   <li>
-                    <ion-item>
+                    <ion-item button>
                       <a href="/page/user-data">User data</a>
                     </ion-item>
                   </li>
                   <li>
-                    <ion-item>
+                    <ion-item button>
                       <a href="/page/lorem-ipsum">Lorem Ipsum Page</a>
                     </ion-item>
                   </li>

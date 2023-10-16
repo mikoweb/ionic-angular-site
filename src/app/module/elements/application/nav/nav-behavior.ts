@@ -23,9 +23,6 @@ export class NavBehavior extends Behavior {
       for (const anchor of this.getAllAnchorsQuery()) {
         const href: string = this.getAnchorHref(anchor);
 
-        console.log(href);
-        console.log(this.router.url);
-
         if (href === this.router.url) {
           this.setActive(anchor);
           break;

@@ -17,10 +17,15 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   constructor(appRef: ApplicationRef) {
+    this.initApp(appRef);
+  }
+
+  private async initApp(appRef: ApplicationRef) {
     CustomElementRegistry.init(appRef)
 
     commandBusLoader();
     const commandBus = inject(CommandBus);
+    await import('../import-global-elements');
 
     commandBus.execute(new LoadUserDataCommand());
 

@@ -21,10 +21,10 @@ export class AppComponent {
   }
 
   private async initApp(appRef: ApplicationRef) {
-    CustomElementRegistry.init(appRef)
-
     commandBusLoader();
     const commandBus = inject(CommandBus);
+
+    CustomElementRegistry.init(appRef);
     await import('../import-global-elements');
 
     commandBus.execute(new LoadUserDataCommand());

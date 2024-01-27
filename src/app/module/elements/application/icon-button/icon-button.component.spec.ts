@@ -9,8 +9,11 @@ describe('IconButtonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ IconButtonComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [],
+      imports: [
+        IconButtonComponent,
+        IonicModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(IconButtonComponent);

@@ -9,7 +9,7 @@ import GlobalStyleLoader from '@app/module/core/application/custom-element/globa
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: UserFullNameDisplayComponent.customElementName,
+  selector: UserFullNameDisplayComponent.ngSelectorName,
   templateUrl: './user-full-name-display.component.html',
   styleUrls: ['./user-full-name-display.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +21,8 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class UserFullNameDisplayComponent extends CustomElementBaseComponent {
   public static override readonly customElementName = 'app-user-full-name-display';
+  public static override readonly ngSelectorName: string
+    = `${CustomElementBaseComponent.ngPrefix}-${UserFullNameDisplayComponent.customElementName}`;
 
   constructor(
     ele: ElementRef,

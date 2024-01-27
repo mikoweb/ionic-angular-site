@@ -8,7 +8,7 @@ import GlobalStyleLoader from '@app/module/core/application/custom-element/globa
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: IconButtonComponent.customElementName,
+  selector: IconButtonComponent.ngSelectorName,
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
   standalone: true,
@@ -19,6 +19,8 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class IconButtonComponent extends CustomElementBaseComponent implements OnChanges {
   public static override readonly customElementName = 'app-icon-button';
+  public static override readonly ngSelectorName: string
+    = `${CustomElementBaseComponent.ngPrefix}-${IconButtonComponent.customElementName}`;
 
   @Input() name?: string;
   @Input() size?: string;

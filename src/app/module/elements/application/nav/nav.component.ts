@@ -8,7 +8,7 @@ import GlobalStyleLoader from '@app/module/core/application/custom-element/globa
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: NavComponent.customElementName,
+  selector: NavComponent.ngSelectorName,
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
   standalone: true,
@@ -18,6 +18,8 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class NavComponent extends CustomElementBaseComponent {
   public static override readonly customElementName = 'app-nav';
+  public static override readonly ngSelectorName: string
+    = `${CustomElementBaseComponent.ngPrefix}-${NavComponent.customElementName}`;
 
   constructor(
     ele: ElementRef,

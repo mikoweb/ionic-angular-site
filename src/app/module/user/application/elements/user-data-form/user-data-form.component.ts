@@ -13,7 +13,7 @@ import GlobalStyleLoader from '@app/module/core/application/custom-element/globa
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: UserDataFormComponent.customElementName,
+  selector: UserDataFormComponent.ngSelectorName,
   templateUrl: './user-data-form.component.html',
   styleUrls: ['./user-data-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,6 +25,8 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class UserDataFormComponent extends CustomElementBaseComponent implements OnInit {
   public static override readonly customElementName: string = 'app-user-data-form';
+  public static override readonly ngSelectorName: string
+    = `${CustomElementBaseComponent.ngPrefix}-${UserDataFormComponent.customElementName}`;
 
   protected readonly form = new FormGroup({
     firstName: new FormControl(),

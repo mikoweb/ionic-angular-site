@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { IconButton } from '@material/mwc-icon-button/mwc-icon-button';
 import { CustomElement, customElementParams } from '@app/module/core/application/custom-element/custom-element';
 import CustomElementBaseComponent from '@app/module/core/application/custom-element/custom-element-base-component';
 import GlobalStyleLoader from '@app/module/core/application/custom-element/global-style-loader';
@@ -23,8 +22,8 @@ export class IconButtonComponent extends CustomElementBaseComponent implements O
     = `${CustomElementBaseComponent.ngPrefix}-${IconButtonComponent.customElementName}`;
 
   @Input() name?: string;
-  @Input() size?: string;
-  @Input() color?: string;
+  @Input() size: string = 'small'
+  @Input() color: string = 'black';
   @Input() disabled: boolean = false;
   @Output() click = new EventEmitter();
 
@@ -32,7 +31,7 @@ export class IconButtonComponent extends CustomElementBaseComponent implements O
     super(ele, gsl);
   }
 
-  public get button(): IconButton | null {
+  public get button(): HTMLButtonElement | null {
     return this.getShadowRoot().querySelector('.app-icon-button');
   }
 

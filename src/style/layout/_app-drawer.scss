@@ -1,32 +1,6 @@
 @import "../app-variables";
 
 .app-drawer {
-  &.ready {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: $app-drawer-z-index;
-  }
-
-  &__top-bar {
-    height: $app-header-height;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    font-size: 1.3rem;
-    line-height: 1.5;
-  }
-
-  &__top-bar-item {
-    margin: 0 5px;
-  }
-
-  &__content {
-    padding: 0 0 15px;
-  }
-
   &__nav {
     ul {
       margin: 0;
@@ -54,4 +28,5 @@
   display: inline-block;
   width: 48px;
   height: 48px;
+  --color: #fff;
 }

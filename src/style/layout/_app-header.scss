@@ -20,6 +20,9 @@
   color: #fff;
   font-size: 1.3rem;
   line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   > .container {
     display: flex;

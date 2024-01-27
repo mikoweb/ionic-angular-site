@@ -1,3 +1,12 @@
 :host {
   display: inline-block;
 }
+
+ion-fab-button {
+  --background: none;
+  --background-activated: none;
+  --background-hover: none;
+  --box-shadow: none;
+  margin: 0;
+  margin-inline: 0;
+}

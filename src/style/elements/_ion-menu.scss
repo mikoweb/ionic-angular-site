@@ -1,0 +1,31 @@
+@import "../app-variables";
+
+ion-menu {
+  position: fixed;
+  z-index: $app-drawer-z-index;
+
+  ion-header, ion-toolbar {
+    box-shadow: none !important;
+  }
+
+  ion-toolbar {
+    --background: #fff;
+    height: $app-header-height;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  ion-title {
+    color: #000;
+  }
+
+  ion-menu-button {
+    display: block !important;
+    margin-right: 10px;
+  }
+}

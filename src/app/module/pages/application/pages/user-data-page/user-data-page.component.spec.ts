@@ -15,11 +15,13 @@ describe('UserDataPageComponent', () => {
         IonicModule.forRoot()
       ]
     }).compileComponents();
+  }));
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(UserDataPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

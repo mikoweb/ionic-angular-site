@@ -9,8 +9,11 @@ describe('UserDataFormComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserDataFormComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [],
+      imports: [
+        UserDataFormComponent,
+        IonicModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserDataFormComponent);

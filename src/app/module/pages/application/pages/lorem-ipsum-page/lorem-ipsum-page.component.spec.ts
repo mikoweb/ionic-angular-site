@@ -9,8 +9,11 @@ describe('LoremIpsumPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoremIpsumPageComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [],
+      imports: [
+        LoremIpsumPageComponent,
+        IonicModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoremIpsumPageComponent);

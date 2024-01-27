@@ -9,8 +9,11 @@ describe('UserDataPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserDataPageComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [],
+      imports: [
+        UserDataPageComponent,
+        IonicModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserDataPageComponent);

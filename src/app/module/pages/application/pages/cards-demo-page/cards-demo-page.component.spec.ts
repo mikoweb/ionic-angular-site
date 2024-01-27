@@ -9,8 +9,11 @@ describe('CardsDemoPageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardsDemoPageComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [],
+      imports: [
+        CardsDemoPageComponent,
+        IonicModule.forRoot()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CardsDemoPageComponent);

@@ -1,4 +1,4 @@
-import UserDataDTO from '@app/module/user/domain/dto/user-data-dto';
+import UserDataDTO from '@app/module/user/ui/dto/user-data-dto';
 import { Injectable } from '@angular/core';
 
 @Injectable({

@@ -8,7 +8,7 @@ configure({
   enforceActions: 'never',
 });
 
-import { routes } from '@app/app.routes';
+import { routes } from '@app/shared/infrastructure/routes/app.routes';
 import { AppComponent } from '@app/app.component';
 import { environment } from './environments/environment';
 

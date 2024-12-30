@@ -8,7 +8,7 @@ import GlobalStyleLoader from '@app/core/application/custom-element/global-style
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: NavComponent.ngSelectorName,
+  selector: CustomElementBaseComponent.ngPrefix + '-' + NavComponent.customElementName,
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
   standalone: true,
@@ -18,8 +18,6 @@ const { encapsulation, schemas } = customElementParams;
 @CustomElement()
 export class NavComponent extends CustomElementBaseComponent {
   public static override readonly customElementName = 'app-nav';
-  public static override readonly ngSelectorName: string
-    = `${CustomElementBaseComponent.ngPrefix}-${NavComponent.customElementName}`;
 
   constructor(
     ele: ElementRef,

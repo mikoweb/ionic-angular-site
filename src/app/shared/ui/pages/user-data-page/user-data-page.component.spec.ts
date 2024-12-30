@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { UserDataPageComponent } from './user-data-page.component';
 
@@ -12,7 +11,6 @@ describe('UserDataPageComponent', () => {
       declarations: [],
       imports: [
         UserDataPageComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
   }));

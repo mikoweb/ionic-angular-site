@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { UserDataFormComponent } from './user-data-form.component';
 
@@ -12,7 +11,6 @@ describe('UserDataFormComponent', () => {
       declarations: [],
       imports: [
         UserDataFormComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

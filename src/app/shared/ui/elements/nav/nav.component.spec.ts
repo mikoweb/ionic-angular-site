@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { NavComponent } from './nav.component';
 
@@ -12,7 +11,6 @@ describe('NavComponent', () => {
       declarations: [],
       imports: [
         NavComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

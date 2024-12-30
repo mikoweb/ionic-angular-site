@@ -1,5 +1,5 @@
 import { ApplicationRef, Component, inject } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { customElementParams } from '@app/core/application/custom-element/custom-element';
 import { CommonModule } from '@angular/common';
 import { CustomElementRegistry } from '@app/core/application/custom-element/custom-element';
 import commandBusLoader from '@app/shared/infrastructure/config/command-bus/loaders';
@@ -10,10 +10,13 @@ import { LayoutInitializer } from '@app/module/layout/ui/layout-initializer';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  standalone: true,
-  imports: [IonicModule, CommonModule, RouterOutlet],
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    schemas: customElementParams.schemas,
+    imports: [
+      CommonModule,
+      RouterOutlet
+    ]
 })
 export class AppComponent {
   constructor(appRef: ApplicationRef) {

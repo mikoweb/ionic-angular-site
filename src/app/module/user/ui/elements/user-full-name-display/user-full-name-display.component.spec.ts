@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { UserFullNameDisplayComponent } from './user-full-name-display.component';
 
@@ -12,7 +11,6 @@ describe('UserFullNameDisplayComponent', () => {
       declarations: [  ],
       imports: [
         UserFullNameDisplayComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

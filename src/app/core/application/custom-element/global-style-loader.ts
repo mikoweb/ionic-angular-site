@@ -29,7 +29,7 @@ export default class GlobalStyleLoader {
 
     const fragment = this.template.content.cloneNode(true) as HTMLElement;
 
-    return fragment.querySelectorAll('style');
+    return fragment.querySelectorAll('style, link');
   }
 
   public init(): void {
@@ -57,9 +57,15 @@ export default class GlobalStyleLoader {
     const template: HTMLTemplateElement = document.createElement('template');
     const styles: NodeListOf<HTMLStyleElement> =
       this.shadowDomStyleElement?.shadowRoot?.querySelectorAll('style') as NodeListOf<HTMLStyleElement>;
+    const links: NodeListOf<HTMLLinkElement> =
+      this.shadowDomStyleElement?.shadowRoot?.querySelectorAll('link') as NodeListOf<HTMLLinkElement>;
 
     for (const style of styles) {
       template.content.appendChild(style)
+    }
+
+    for (const link of links) {
+      template.content.appendChild(link)
     }
 
     this.template = template;

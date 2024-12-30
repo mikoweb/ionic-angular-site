@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { CardsDemoPageComponent } from './cards-demo-page.component';
 
@@ -12,7 +11,6 @@ describe('CardsDemoPageComponent', () => {
       declarations: [],
       imports: [
         CardsDemoPageComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

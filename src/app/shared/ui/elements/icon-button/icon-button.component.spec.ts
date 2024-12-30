@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { IconButtonComponent } from './icon-button.component';
 
@@ -12,7 +11,6 @@ describe('IconButtonComponent', () => {
       declarations: [],
       imports: [
         IconButtonComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

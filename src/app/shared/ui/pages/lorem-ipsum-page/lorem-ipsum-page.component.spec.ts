@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { LoremIpsumPageComponent } from './lorem-ipsum-page.component';
 
@@ -12,7 +11,6 @@ describe('LoremIpsumPageComponent', () => {
       declarations: [],
       imports: [
         LoremIpsumPageComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

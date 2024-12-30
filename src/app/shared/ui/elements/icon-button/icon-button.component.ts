@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { CustomElement, customElementParams } from '@app/core/application/custom-element/custom-element';
 import CustomElementBaseComponent from '@app/core/application/custom-element/custom-element-base-component';
 import GlobalStyleLoader from '@app/core/application/custom-element/global-style-loader';
@@ -7,19 +6,15 @@ import GlobalStyleLoader from '@app/core/application/custom-element/global-style
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: IconButtonComponent.ngSelectorName,
-  templateUrl: './icon-button.component.html',
-  styleUrls: ['./icon-button.component.scss'],
-  standalone: true,
-  encapsulation,
-  schemas,
-  imports: [IonicModule]
+    selector: CustomElementBaseComponent.ngPrefix + '-' + IconButtonComponent.customElementName,
+    templateUrl: './icon-button.component.html',
+    styleUrls: ['./icon-button.component.scss'],
+    encapsulation,
+    schemas,
 })
 @CustomElement()
 export class IconButtonComponent extends CustomElementBaseComponent implements OnChanges {
   public static override readonly customElementName = 'app-icon-button';
-  public static override readonly ngSelectorName: string
-    = `${CustomElementBaseComponent.ngPrefix}-${IconButtonComponent.customElementName}`;
 
   @Input() name?: string;
   @Input() size: string = 'small'

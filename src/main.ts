@@ -1,7 +1,7 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { RouteReuseStrategy, provideRouter } from '@angular/router';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
+import { provideIonicAngular, IonicRouteStrategy } from '@ionic/angular/standalone';
 import { configure } from 'mobx';
 
 configure({
@@ -19,7 +19,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    importProvidersFrom(IonicModule.forRoot({})),
-    provideRouter(routes),
+    provideIonicAngular({ mode: 'md' }),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
   ],
 });

@@ -1,4 +1,4 @@
-import * as $ from 'jquery';
+import $ from 'jquery';
 import BehaviorEvent from './value-object/behavior-event';
 
 export default abstract class Behavior {

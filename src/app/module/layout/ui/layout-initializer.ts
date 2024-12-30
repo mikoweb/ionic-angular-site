@@ -1,6 +1,6 @@
 import { LayoutReady } from './layout-ready';
 import { AppProgressBehavior } from './behavior/app-progress-behavior';
-import { IonProgressBar } from '@ionic/angular/directives/proxies';
+import { IonProgressBar } from '@ionic/angular/standalone/directives/proxies';
 
 export class LayoutInitializer {
   public static init(): void {

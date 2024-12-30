@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
 
 import { ShadowDomStyleComponent } from './shadow-dom-style.component';
 
@@ -12,7 +11,6 @@ describe('ShadowDomStyleComponent', () => {
       declarations: [],
       imports: [
         ShadowDomStyleComponent,
-        IonicModule.forRoot()
       ]
     }).compileComponents();
 

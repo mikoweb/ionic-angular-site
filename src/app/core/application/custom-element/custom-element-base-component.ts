@@ -4,7 +4,6 @@ import GlobalStyleLoader from '@app/core/application/custom-element/global-style
 
 export default abstract class CustomElementBaseComponent {
   public static readonly customElementName: string;
-  public static readonly ngSelectorName: string;
   public static readonly ngPrefix: string = 'ng';
   protected elementRef: ElementRef;
 

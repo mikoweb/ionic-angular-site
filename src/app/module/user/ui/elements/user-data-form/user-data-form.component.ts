@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import { FormGroup, FormControl,ReactiveFormsModule } from '@angular/forms';
 import UserDataStore from '@app/module/user/domain/store/user-data-store';
 import { autorun } from 'mobx';
@@ -9,24 +8,26 @@ import CommandBus from '@app/core/application/command-bus/command-bus';
 import SaveUserDataCommand from '@app/module/user/application/interaction/command/save-user-data/save-user-data-command';
 import UserDataDTO from '@app/module/user/ui/dto/user-data-dto';
 import GlobalStyleLoader from '@app/core/application/custom-element/global-style-loader';
+import { IonButton, IonInput } from '@ionic/angular/standalone';
 
 const { encapsulation, schemas } = customElementParams;
 
 @Component({
-  selector: UserDataFormComponent.ngSelectorName,
-  templateUrl: './user-data-form.component.html',
-  styleUrls: ['./user-data-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  encapsulation,
-  schemas,
-  imports: [IonicModule, ReactiveFormsModule]
+    selector: CustomElementBaseComponent.ngPrefix + '-' + UserDataFormComponent.customElementName,
+    templateUrl: './user-data-form.component.html',
+    styleUrls: ['./user-data-form.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation,
+    schemas,
+  imports: [
+    ReactiveFormsModule,
+    IonButton,
+    IonInput,
+  ]
 })
 @CustomElement()
 export class UserDataFormComponent extends CustomElementBaseComponent implements OnInit {
   public static override readonly customElementName: string = 'app-user-data-form';
-  public static override readonly ngSelectorName: string
-    = `${CustomElementBaseComponent.ngPrefix}-${UserDataFormComponent.customElementName}`;
 
   protected readonly form = new FormGroup({
     firstName: new FormControl(),

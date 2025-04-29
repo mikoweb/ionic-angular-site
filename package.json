@@ -6,12 +6,11 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "npm run copy-ionic && ng serve",
-    "build": "npm run copy-ionic && ng build",
+    "start": "ng serve",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "npm run copy-ionic && ng test",
-    "lint": "ng lint",
-    "copy-ionic": "ncp ./node_modules/@ionic/core/dist/ionic ./src/assets/ionic"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

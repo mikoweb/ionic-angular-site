@@ -1,0 +1,56 @@
+<template #menuButtonTemplate>
+  <ion-menu-button
+    class="app-drawer-toggle"
+    aria-label="Open menu"
+    role="button"></ion-menu-button>
+</template>
+
+<template #menuTemplate>
+  <ion-menu content-id="mobile-menu-content" class="app-drawer" mode="md" side="start">
+    <ion-header>
+      <ion-toolbar>
+        <div>
+          <ion-title>Menu</ion-title>
+          <ion-menu-button></ion-menu-button>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <app-nav>
+        <div class="app-drawer__nav">
+          <ion-accordion-group value="demo-pages">
+            <ion-accordion value="demo-pages">
+              <ion-item slot="header" color="light">
+                <ion-label role="heading">Strony Demo</ion-label>
+              </ion-item>
+              <ion-list slot="content" class="app-drawer__content">
+              </ion-list>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+      </app-nav>
+    </ion-content>
+  </ion-menu>
+  <div id="mobile-menu-content"></div>
+</template>
+
+<template>
+  <ion-progress-bar></ion-progress-bar>
+</template>
+
+<div style="display: none" #headerToolbarButtons>
+  <app-icon-button
+    wc-lazy
+    name="person-outline"
+    id="user-menu-activator"
+    aria-label="Open user menu"
+    role="button">
+  </app-icon-button>
+  <ion-popover wc-lazy trigger="user-menu-activator" triggerAction="click" side="bottom" alignment="start">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <app-user-full-name-display></app-user-full-name-display>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+</div>

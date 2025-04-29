@@ -12,6 +12,11 @@ import { routes } from '@app/shared/infrastructure/routes/app.routes';
 import { AppComponent } from '@app/app.component';
 import { environment } from './environments/environment';
 
+import * as allIcons from 'ionicons/icons';
+import { addIcons } from 'ionicons';
+
+addIcons(allIcons);
+
 if (environment.production) {
   enableProdMode();
 }

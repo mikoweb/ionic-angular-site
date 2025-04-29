@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, inject } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, inject } from '@angular/core';
 import { customElementParams } from '@app/core/application/custom-element/custom-element';
 import { CommonModule } from '@angular/common';
 import { CustomElementRegistry } from '@app/core/application/custom-element/custom-element';
@@ -8,17 +8,19 @@ import LoadUserDataCommand from '@app/module/user/application/interaction/comman
 import { LayoutReady } from '@app/module/layout/ui/layout-ready';
 import { LayoutInitializer } from '@app/module/layout/ui/layout-initializer';
 import { RouterOutlet } from '@angular/router';
+import { AppLayoutComponent } from '@app/module/layout/ui/elements/app-layout/app-layout.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
     schemas: customElementParams.schemas,
-    imports: [
-      CommonModule,
-      RouterOutlet
-    ]
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    AppLayoutComponent
+  ]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   constructor(appRef: ApplicationRef) {
     this.initApp(appRef);
   }
@@ -28,10 +30,11 @@ export class AppComponent {
     const commandBus = inject(CommandBus);
 
     CustomElementRegistry.init(appRef);
-    await import('../import-global-elements');
 
     commandBus.execute(new LoadUserDataCommand());
+  }
 
+  ngAfterViewInit(): void {
     LayoutReady.init();
     LayoutInitializer.init();
   }

@@ -34,9 +34,17 @@
 
   &__item {
     margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:first-child {
       margin-left: 0;
+    }
+
+    &--toggle {
+      width: 48px;
+      height: 48px;
     }
   }
 

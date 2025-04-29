@@ -1,4 +1,4 @@
-import { IonProgressBar } from '@ionic/angular/standalone/directives/proxies';
+import { IonProgressBar } from '@ionic/angular/standalone';
 import { LayoutReady } from '../layout-ready';
 
 export class AppProgressBehavior {

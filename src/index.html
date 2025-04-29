@@ -19,74 +19,34 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 </head>
 <body>
-  <ion-progress-bar id="app-progress" class="app-progress active" color="tertiary" wc-ready></ion-progress-bar>
+  <ion-progress-bar id="app-progress" class="app-progress active" color="tertiary"></ion-progress-bar>
   <header class="app-header">
     <div class="app-header-toolbar">
       <div class="container">
-        <ion-menu-button
-          wc-lazy
-          class="app-header-toolbar__item app-drawer-toggle"
-          aria-label="Open menu"
-          role="button"></ion-menu-button>
+        <div id="app-menu-button" class="app-header-toolbar__item app-header-toolbar__item--toggle" wc-replace-lazy>Menu</div>
         <h1 class="app-header-toolbar__item app-header__title">App Name</h1>
-        <app-icon-button
-          wc-lazy
-          name="person-outline"
-          class="app-header-toolbar__item app-header-toolbar__user-menu-activator"
-          id="user-menu-activator"
-          aria-label="Open user menu"
-          role="button">
-        </app-icon-button>
-        <ion-popover wc-lazy trigger="user-menu-activator" triggerAction="click" side="bottom" alignment="start">
-          <ion-content class="ion-padding">
-            <app-user-full-name-display></app-user-full-name-display>
-          </ion-content>
-        </ion-popover>
+        <div id="app-header-toolbar-buttons" class="app-header-toolbar__item app-header-toolbar__user-menu-activator"></div>
       </div>
     </div>
-    <ion-menu content-id="mobile-menu-content" class="app-drawer" mode="md" side="start">
-      <ion-header wc-hidden>
-        <ion-toolbar>
-          <div>
-            <ion-title>Menu</ion-title>
-            <ion-menu-button></ion-menu-button>
-          </div>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content wc-hidden>
-        <app-nav>
-          <nav class="app-drawer__nav">
-            <ion-accordion-group value="demo-pages">
-              <ion-accordion value="demo-pages">
-                <ion-item slot="header" color="light">
-                  <ion-label role="heading">Strony Demo</ion-label>
-                </ion-item>
-                <ion-list slot="content">
-                  <ul>
-                    <li>
-                      <ion-item button>
-                        <a href="/page/cards-demo">Cards Demo</a>
-                      </ion-item>
-                    </li>
-                    <li>
-                      <ion-item button>
-                        <a href="/page/user-data">User data</a>
-                      </ion-item>
-                    </li>
-                    <li>
-                      <ion-item button>
-                        <a href="/page/lorem-ipsum">Lorem Ipsum Page</a>
-                      </ion-item>
-                    </li>
-                  </ul>
-                </ion-list>
-              </ion-accordion>
-            </ion-accordion-group>
-          </nav>
-        </app-nav>
-      </ion-content>
-    </ion-menu>
-    <div id="mobile-menu-content"></div>
+    <nav id="app-menu" wc-replace-hidden>
+      <ul>
+        <li>
+          <ion-item button>
+            <a href="/page/cards-demo">Cards Demo</a>
+          </ion-item>
+        </li>
+        <li>
+          <ion-item button>
+            <a href="/page/user-data">User data</a>
+          </ion-item>
+        </li>
+        <li>
+          <ion-item button>
+            <a href="/page/lorem-ipsum">Lorem Ipsum Page</a>
+          </ion-item>
+        </li>
+      </ul>
+    </nav>
   </header>
   <main>
     <app-root></app-root>
@@ -99,7 +59,5 @@
   <footer class="app-footer">
     <span>Footer</span>
   </footer>
-  <script type="module" src="./assets/ionic/ionic.esm.js"></script>
-  <script nomodule src="./assets/ionic/ionic.js"></script>
 </body>
 </html>

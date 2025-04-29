@@ -1,5 +1,5 @@
 html:not(.no-js) {
-  *[wc-lazy] {
+  *[wc-lazy], *[wc-replace-lazy] {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -12,7 +12,7 @@ html:not(.no-js) {
     }
   }
 
-  *[wc-hidden] {
+  *[wc-hidden], *[wc-replace-hidden] {
     display: none;
     pointer-events: none;
     &.ready {
